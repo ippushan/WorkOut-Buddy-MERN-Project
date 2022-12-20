@@ -33,6 +33,7 @@ const WorkoutForm = () => {
             setError('You must be logged in')
             return
         }
+        
         const workout = { title, load, reps }
 
         const response = await fetch('http://localhost:4000/api/workouts', {
