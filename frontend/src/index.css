@@ -1,5 +1,5 @@
 /* google font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 /* layout */
 :root {
@@ -26,7 +26,7 @@ header a {
   color: #333;
   text-decoration: none;
 }
-.pages {
+.pages{
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
@@ -44,7 +44,7 @@ header a {
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 .workout-details h4 {
   margin: 0 0 10px 0;
@@ -68,8 +68,7 @@ header a {
 }
 
 /* new workout form */
-label,
-input {
+label, input {
   display: block;
 }
 input {
@@ -81,12 +80,6 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
-input:focus {
-  border: none transparent;
-  outline: none;
-}
-
 form button {
   background: var(--primary);
   border: 0;
@@ -104,11 +97,23 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
-div.each-error {
-  margin-top: 0;
-  color: var(--error);
-}
-
 input.error {
   border: 1px solid var(--error);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 20px;
+}
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 10px;
+  background: #fff;
+  border-radius: 4px;
 }
