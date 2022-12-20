@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../Pages/Login";
-import Signup from "../Pages/Signup";
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const NavBar = () => {
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
+  const logoutHandler = () => {
+    logout();
+  };
+
   return (
     <header>
       <div className="container">
@@ -11,14 +17,15 @@ const NavBar = () => {
           <h1>Workout Buddy</h1>
         </Link>
         <nav>
-          <div>
-            <Link to="/login">
-              Login
-            </Link>
-            <Link to="/signup">
-              Signup
-            </Link>
-          </div>
+          {user && (
+            <div>
+          <span>{user.email}</span>
+            <button onClick={logoutHandler}>LogOut</button>
+          </div>)}
+          {!user&&<div>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </div>}
         </nav>
       </div>
     </header>
