@@ -5,7 +5,8 @@ const asyncHandler = require('express-async-handler')
 // @desc get all Workouts
 // @route Get /api/workout/
 const getWorkouts = asyncHandler(async (req, res) => {
-    const workouts = await Workout.find({}).sort({ createdAt: -1 }).limit(3)
+    const user_id = req.user._id
+    const workouts = await Workout.find({user_id}).sort({ createdAt: -1 }).limit(3)
     res.status(200).json(workouts)
 })
 
@@ -52,7 +53,8 @@ const createWorkout = asyncHandler(async (req, res) => {
 
 
     try {
-        const workout = await Workout.create({ title, reps, load })
+        const user_id = req.user._id
+        const workout = await Workout.create({ title, reps, load, user_id })
         res.status(200).json(workout)
 
     } catch (error) {
