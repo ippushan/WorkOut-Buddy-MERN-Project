@@ -52,7 +52,7 @@ const userLogin = asyncHandler( async (req, res) => {
 // @route Post /api/user/signup
 const userSignup = asyncHandler(async (req, res) => {
     const { email, password } = req.body
-
+    console.log(req.body)
     //validation
     if (!email || !password) {
         throw new Error('Please Fill All Fields')
